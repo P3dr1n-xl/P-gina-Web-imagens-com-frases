@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frases</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+            background: #f0f0f0;
+        }
+        .frase {
+            background: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #ca002c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="frase">
+        <div class="frase">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300" alt="Imagem">
+            <h2>"Acredite em você!"</h2>
+            <p><strong>- Você consegue</strong></p>
+        </div>
+    </div>
+    
+    <button onclick="novaFrase()">Nova Frase</button>
+
+    <script>
+        const frases = [
+            {img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300", texto: "Acredite em você!", autor: "Você consegue"},
+            {img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300", texto: "Hoje é o seu dia!", autor: "Comece agora"},
+            {img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300", texto: "Você é suficiente!", autor: "Sempre"},
+            {img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300", texto: "Você pode!", autor: "Confie"}
+        ];
+
+        function novaFrase() {
+            const aleatoria = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById('frase').innerHTML = `
+                <div class="frase">
+                    <img src="${aleatoria.img}" alt="Imagem">
+                    <h2>"${aleatoria.texto}"</h2>
+                    <p><strong>- ${aleatoria.autor}</strong></p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
